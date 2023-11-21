@@ -9,6 +9,14 @@ export const UserContainer = ({ userId = '' }) => {
   } = useGetUserById(userId)
   const [formState, setFormState] = useState({})
 
+  const onChangeFunc = ({name, value}) => {
+    console.log('III', value)
+    let currentValues = formState
+    currentValues[name] = value
+
+    setFormState({...currentValues})
+  }
+
   console.log('USER', user, formState)
 
   useEffect(() => {
@@ -18,13 +26,18 @@ export const UserContainer = ({ userId = '' }) => {
   }, [user?.id])
 
   return (
-    <form>
-      <div>
-        <Input
-          name="name"
-          value={formState?.name}
-        />
-      </div>
-    </form>
+    <div>
+      <form>
+        <div>
+          <Input
+            name="name"
+            value={formState?.name}
+            onChangeFunc={onChangeFunc}
+            required
+          />
+        </div>
+      </form>
+    </div>
+
   )
 }
