@@ -35,6 +35,12 @@ export const UserContainer = ({ userId = '' }) => {
             onChangeFunc={onChangeFunc}
             required
           />
+          <Input
+            name="email"
+            value={formState?.email}
+            onChangeFunc={onChangeFunc}
+            required
+          />
         </div>
       </form>
     </div>
