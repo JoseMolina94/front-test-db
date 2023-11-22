@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const useUsersCRUD = () => {
   const [loading, setLoading] = useState(false)
@@ -12,23 +12,32 @@ export const useUsersCRUD = () => {
   }
 
   const createUser = async (data) => {
-
+    try {
+      setLoading(true)
+      await fetch("https://api.escuelajs.co/api/v1/users/", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((dataResponse) => {
+          setLoading(false)
+          return dataResponse
+        })
+    } catch (e) {
+      console.log(e)
+      setLoading(false)
+      return e
+    }
   }
 
   const updateUser = async (data) => {
-    //TO READ: La API de Platzi no recibe todos los datos, asi que para la simulacion solo enviare a los metodos la data aceptada...
-
-    const dataToSend = {
-      name: data.name,
-      email: data.email,
-    }
-
     try {
       setLoading(true)
       await fetch(`https://api.escuelajs.co/api/v1/users/${data.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dataToSend),
+        body: JSON.stringify(data),
       })
         .then((response) => response.json())
         .then((dataResponse) => {

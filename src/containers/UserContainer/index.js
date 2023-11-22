@@ -58,90 +58,89 @@ export const UserContainer = ({ userId = '' }) => {
   }, [user?.id])
 
   return (
-      <form onSubmit={onSubmit}>
-        <div className="user-form-container">
-          <div className="header" >
-            <div
-              className="icon"
-              style={{
-                fontSize: "32px",
-                marginTop: "10px"
-              }}
-            >
-              <Link to="/">
-                <MdOutlineArrowBack />
-              </Link>
-            </div>
+    <div className="user-form-container">
+      <div className="header" >
+        <div
+          className="icon"
+          style={{
+            fontSize: "32px",
+            marginTop: "10px"
+          }}
+        >
+          <Link to="/">
+            <MdOutlineArrowBack />
+          </Link>
+        </div>
 
-            <h1 className="title">
-              Usuario
-            </h1>
-          </div>
+        <h1 className="title">
+          Usuario
+        </h1>
+      </div>
 
-          <div className="form-container">
-            <div className="image-input-container">
-              <ImageInput
-                name="avatar"
-                value={formState?.avatar}
-                onChangeFunc={onChangeFunc}
-              />
-            </div>
+      <div className="form-container">
+        <div className="image-input-container">
+          <ImageInput
+            name="avatar"
+            value={formState?.avatar}
+            onChangeFunc={onChangeFunc}
+          />
+        </div>
 
-            <div className="inputs-container">
-              <Input
-                name="name"
-                value={formState?.name}
-                onChangeFunc={onChangeFunc}
-                label="Nombre"
-                required
-              />
-              <Input
-                name="email"
-                value={formState?.email}
-                onChangeFunc={onChangeFunc}
-                label="Email"
-                required
-              />
+        <div className="inputs-container">
+          <Input
+            name="name"
+            value={formState?.name}
+            onChangeFunc={onChangeFunc}
+            label="Nombre"
+            required
+          />
+          <Input
+            name="email"
+            value={formState?.email}
+            onChangeFunc={onChangeFunc}
+            label="Email"
+            required
+          />
 
-              <div className="three-columns-section">
-                <Input
-                  name="birthday"
-                  value={formState?.birthday}
-                  onChangeFunc={onChangeFunc}
-                  label="Birthday"
-                  type="date"
-                  required
-                />
+          <div className="three-columns-section">
+            <Input
+              name="birthday"
+              value={formState?.birthday}
+              onChangeFunc={onChangeFunc}
+              label="Birthday"
+              type="date"
+              required
+            />
 
-                <OptionSelect
-                  options={genresOptions}
-                  name="genre"
-                  value={formState?.genre}
-                  onChangeFunc={onChangeFunc}
-                  label="Género"
-                />
+            <OptionSelect
+              options={genresOptions}
+              name="genre"
+              value={formState?.genre}
+              onChangeFunc={onChangeFunc}
+              label="Género"
+            />
 
-                <OptionSelect
-                  options={roleOptions}
-                  name="role"
-                  value={formState?.role}
-                  onChangeFunc={onChangeFunc}
-                  label="Rol"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="user-form-button-save-section" >
-            <button
-              className={loading ? "save-button button-disabled" : "save-button"}
-              disabled={loading}
-              type="submit"
-            >
-              {loading ? "Saving..." : "Save"}
-            </button>
+            <OptionSelect
+              options={roleOptions}
+              name="role"
+              value={formState?.role}
+              onChangeFunc={onChangeFunc}
+              label="Rol"
+            />
           </div>
         </div>
-      </form>
+      </div>
+
+      <div className="user-form-button-save-section" >
+        <button
+          className={loading ? "save-button button-disabled" : "save-button"}
+          disabled={loading}
+          type="button"
+          onClick={() => onSubmit()}
+        >
+          {loading ? "Saving..." : "Save"}
+        </button>
+      </div>
+    </div>
   )
 }
