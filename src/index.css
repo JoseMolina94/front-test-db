@@ -47,7 +47,17 @@ code {
    border-radius: 10px;
    border-color: darkgreen;
    cursor: pointer;
- }
+}
+
+.create-button {
+    color: white;
+    background: green;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border-color: darkgreen;
+    cursor: pointer;
+}
 
 .button-disabled {
   opacity: 0.75;

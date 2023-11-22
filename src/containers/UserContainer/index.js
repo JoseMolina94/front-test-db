@@ -12,9 +12,10 @@ import {Link} from "react-router-dom";
 import './styles.css'
 
 export const UserContainer = ({ userId = '' }) => {
+  const isEdit = userId !== 'create'
   const {
     user
-  } = useGetUserById(userId)
+  } = useGetUserById( isEdit ? userId : '')
   const {
     saveUser,
     loading,
@@ -24,15 +25,15 @@ export const UserContainer = ({ userId = '' }) => {
     name: "",
     email: "",
     avatar: "",
-    role: "",
-    password: "123",
+    role: "customer",
+    password: "1234",
     birthday: moment().format("YYYY-MM-DD"),
-    genre: "M"
+    genre: "male"
   }
   const [formState, setFormState] = useState(initialValues)
   const genresOptions = [
-    { label: "Mujer", value: "female" },
     { label: "Hombre", value: "male" },
+    { label: "Mujer", value: "female" }
   ]
   const roleOptions = [
     { label: "Cliente", value: "customer" },
@@ -45,7 +46,6 @@ export const UserContainer = ({ userId = '' }) => {
   }
 
   const onChangeFunc = ({name, value}) => {
-    //console.log('III', value)
     let currentValues = formState
     currentValues[name] = value
 
@@ -101,7 +101,7 @@ export const UserContainer = ({ userId = '' }) => {
               <strong>Aviso:</strong> El cambio de imagen es solo de muestra, dado que no hay un servicio para subir las imagenes, la imagen asignada al guardar sera una predefinida en la app.
             </div>
           </div>
-        
+
         <div className="inputs-container">
           <Input
             name="name"
