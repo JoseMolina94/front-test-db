@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from "../../components/Commons/Input";
 import { useGetUserById } from "../../hooks/useGetUserById";
+import {useUsersCRUD} from "../../hooks/useUsersCRUD";
 import { ImageInput } from "../../components/Commons/ImageInput";
 import { OptionSelect } from "../../components/Commons/OptionSelect";
 import { MdOutlineArrowBack } from "react-icons/md";
@@ -9,10 +10,15 @@ import {Link} from "react-router-dom";
 
 import './styles.css'
 
+
 export const UserContainer = ({ userId = '' }) => {
   const {
     user
   } = useGetUserById(userId)
+  const {
+    saveUser,
+    loading
+  } = useUsersCRUD()
   const initialValues = {
     name: "",
     email: "",
@@ -40,8 +46,9 @@ export const UserContainer = ({ userId = '' }) => {
     setFormState({...currentValues})
   }
 
-  const onSubmit = () => {
-    
+  const onSubmit = async () => {
+    const response = await saveUser(formState)
+    console.log('RES', response)
   }
 
   useEffect(() => {
@@ -51,7 +58,7 @@ export const UserContainer = ({ userId = '' }) => {
   }, [user?.id])
 
   return (
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="user-form-container">
           <div className="header" >
             <div
@@ -127,9 +134,11 @@ export const UserContainer = ({ userId = '' }) => {
 
           <div className="user-form-button-save-section" >
             <button
-              className="save-button"
+              className={loading ? "save-button button-disabled" : "save-button"}
+              disabled={loading}
+              type="submit"
             >
-              Save
+              {loading ? "Saving..." : "Save"}
             </button>
           </div>
         </div>
