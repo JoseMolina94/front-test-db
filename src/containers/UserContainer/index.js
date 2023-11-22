@@ -11,7 +11,6 @@ import {Link} from "react-router-dom";
 
 import './styles.css'
 
-
 export const UserContainer = ({ userId = '' }) => {
   const {
     user
