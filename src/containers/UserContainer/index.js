@@ -5,6 +5,7 @@ import {useUsersCRUD} from "../../hooks/useUsersCRUD";
 import { ImageInput } from "../../components/Commons/ImageInput";
 import { OptionSelect } from "../../components/Commons/OptionSelect";
 import { MdOutlineArrowBack } from "react-icons/md";
+import { ErrorDisplay } from "../../components/Commons/ErrorDisplay";
 import moment from "moment";
 import {Link} from "react-router-dom";
 
@@ -17,7 +18,8 @@ export const UserContainer = ({ userId = '' }) => {
   } = useGetUserById(userId)
   const {
     saveUser,
-    loading
+    loading,
+    error
   } = useUsersCRUD()
   const initialValues = {
     name: "",
@@ -38,8 +40,13 @@ export const UserContainer = ({ userId = '' }) => {
     { label: "Admininstrador", value: "admin" },
   ]
 
+  const refresh = () => {
+    //TO READ: solo para mantener la imagen del formulario, por limitaciones en la API de Platzi...
+    setFormState({ ...formState, ...user})
+  }
+
   const onChangeFunc = ({name, value}) => {
-    console.log('III', value)
+    //console.log('III', value)
     let currentValues = formState
     currentValues[name] = value
 
@@ -48,7 +55,9 @@ export const UserContainer = ({ userId = '' }) => {
 
   const onSubmit = async () => {
     const response = await saveUser(formState)
-    console.log('RES', response)
+    console.log(response)
+
+    await refresh()
   }
 
   useEffect(() => {
@@ -76,6 +85,10 @@ export const UserContainer = ({ userId = '' }) => {
           Usuario
         </h1>
       </div>
+
+      {
+        error && <ErrorDisplay {...error} />
+      }
 
       <div className="form-container">
         <div className="image-input-container">
