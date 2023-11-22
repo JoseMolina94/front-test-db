@@ -1,0 +1,15 @@
+.info-alert {
+    background: #359AFF;
+    border: 1px solid blue;
+    color: white;
+    font-size: 16px;
+    padding: 0 50px;
+}
+
+@media (max-width: 300px) {
+    .info-alert {
+        padding: 0 5px;
+        width: 100%;
+        font-size: 12px;
+    }
+}

@@ -40,28 +40,31 @@ export const HomeContainer = () => {
           Lista de Usuarios
         </h1>
 
-        <div className="filter-container">
-          <Input
-            name="search"
-            value={filter}
-            placeholder="Filtro de usuarios..."
-            onChangeFunc={onChangeFunc}
-          />
-        </div>
+        <div className="header-options">
+          <div className="filter-container">
+            <Input
+              name="search"
+              value={filter}
+              placeholder="Filtro de usuarios..."
+              onChangeFunc={onChangeFunc}
+            />
+          </div>
 
 
-        <div className="create-button-section">
-          <Link to="/user/create">
-            <button
-              className="create-button"
-            >
-              Crear Usuario
-            </button>
-          </Link>
+          <div className="create-button-section">
+            <Link to="/user/create">
+              <button
+                className="create-button"
+              >
+                Crear Usuario
+              </button>
+            </Link>
+          </div>
         </div>
+
       </div>
       <InfoAlert
-        infoMessage="Bienvenido a esta prueba, podras hacer el CRUD de usuarios, pero ten en cuenta que no podras hacer nada a los usuarios Jhon, Maria o Admin, por restricciones de la API de Platzi. Tambien recuerda que esta API es libre, por lo que los datos aqui mostrados tambien son de otras personas, y la API se limia cada cierto tiempo por temas de mantenimiento, asi que no te asustes si los usuarios desaparecen."
+        infoMessage="Bienvenido a esta prueba, podras hacer el CRUD de usuarios, pero ten en cuenta que no podras hacer nada a los usuarios Jhon, Maria o Admin, por restricciones de la API de Platzi. Tambien recuerda que esta API es libre, por lo que los datos aqui mostrados tambien son de otras personas, y la API se limpia cada cierto tiempo por temas de mantenimiento, asi que no te asustes si los usuarios desaparecen."
       />
 
       <UsersGridList

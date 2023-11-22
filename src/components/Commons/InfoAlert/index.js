@@ -1,4 +1,5 @@
 import React from "react";
+import './styles.css'
 
 export const InfoAlert = (props) => {
   const {
@@ -6,15 +7,7 @@ export const InfoAlert = (props) => {
   } = props
 
   return (
-    <div
-      style={{
-        background: '#359AFF',
-        border: '1px solid blue',
-        color: 'white',
-        fontSize: '16px',
-        padding: '0 50px'
-      }}
-    >
+    <div className="info-alert">
       {infoMessage}
     </div>
   )
