@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { MdOutlinePhotoCamera } from "react-icons/md";
-import { Tooltip } from "../Tooltip";
 import "./styles.css"
 
 export const ImageInput = (props) => {

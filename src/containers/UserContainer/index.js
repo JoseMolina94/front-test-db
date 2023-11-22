@@ -8,6 +8,7 @@ import { MdOutlineArrowBack } from "react-icons/md";
 import { ErrorDisplay } from "../../components/Commons/ErrorDisplay";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
+import { InfoAlert } from "../../components/Commons/InfoAlert";
 
 import './styles.css'
 
@@ -89,6 +90,10 @@ export const UserContainer = ({ userId = '' }) => {
         </h1>
       </div>
 
+      <InfoAlert
+        infoMessage="Aviso: El cambio de imagen es solo de muestra, dado que no hay un servicio para subir las imagenes, la imagen asignada al guardar sera una predefinida en la app."
+      />
+
       {
         error && <ErrorDisplay {...error} />
       }
@@ -100,10 +105,6 @@ export const UserContainer = ({ userId = '' }) => {
               value={formState?.avatar}
               onChangeFunc={onChangeFunc}
             />
-
-            <div className="image-info">
-              <strong>Aviso:</strong> El cambio de imagen es solo de muestra, dado que no hay un servicio para subir las imagenes, la imagen asignada al guardar sera una predefinida en la app.
-            </div>
           </div>
 
         <div className="inputs-container">

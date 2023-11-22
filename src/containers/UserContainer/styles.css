@@ -36,3 +36,45 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 500px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .image-input-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .image-loaded {
+        width: 250px;
+        height: 250px;
+    }
+
+    .img-container {
+        min-height: 0;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 300px) {
+    .image-input-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .image-loaded {
+        width: 200px;
+        height: 200px;
+    }
+
+    .img-container {
+        min-height: 0;
+        min-width: 0;
+    }
+}
