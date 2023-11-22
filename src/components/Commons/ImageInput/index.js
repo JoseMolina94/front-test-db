@@ -38,15 +38,24 @@ export const ImageInput = (props) => {
     })
   }, [inputValue])
 
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
+
   return (
     <div>
       <div className="img-container" onClick={onClick}>
         {
           inputValue
-            ? <img src={inputValue} alt="Singer Image" />
+            ? <div
+                className="image-loaded"
+                style={{
+                  backgroundImage: `url("${inputValue}")`,
+                }}
+              />
             : <div className="photo-icon">
                 <MdOutlinePhotoCamera />
-            </div>
+              </div>
         }
       </div>
 

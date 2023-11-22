@@ -1,4 +1,4 @@
-.input {
+.select {
     font-size: 20px;
     padding: 5px;
     margin: 0;
@@ -9,19 +9,12 @@
     border-color: black;
 }
 
-.textarea {
-    width: 100%;
-    height: 200px;
-    border-width: 1px;
-    border-color: black;
-}
-
-.input-container {
+.select-container {
     line-height: 15px;
     margin: 0;
     padding: 0 20px;
 }
 
-.input-label {
+.select-label {
     font-size: 18px;
 }
