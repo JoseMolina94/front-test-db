@@ -7,12 +7,13 @@ import { OptionSelect } from "../../components/Commons/OptionSelect";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { ErrorDisplay } from "../../components/Commons/ErrorDisplay";
 import moment from "moment";
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import './styles.css'
 
 export const UserContainer = ({ userId = '' }) => {
   const isEdit = userId !== 'create'
+  const navigate = useNavigate()
   const {
     user
   } = useGetUserById( isEdit ? userId : '')
@@ -56,6 +57,9 @@ export const UserContainer = ({ userId = '' }) => {
     const response = await saveUser(formState)
     console.log(response)
 
+    if (!isEdit) {
+      navigate('/')
+    }
     await refresh()
   }
 

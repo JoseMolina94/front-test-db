@@ -1,12 +1,12 @@
 import React from 'react'
 import { UserCard } from "../UserCard";
-import './styles.css'
 import { useUsersCRUD } from "../../hooks/useUsersCRUD";
+
+import './styles.css'
 
 export const UsersGridList = (props) => {
   const {
     usersList = [],
-    loading = false,
     setUsersList
   } = props
   const {
