@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { MdOutlinePhotoCamera } from "react-icons/md";
+import { Tooltip } from "../Tooltip";
 import "./styles.css"
 
 export const ImageInput = (props) => {
@@ -48,14 +49,14 @@ export const ImageInput = (props) => {
         {
           inputValue
             ? <div
-                className="image-loaded"
-                style={{
-                  backgroundImage: `url("${inputValue}")`,
-                }}
-              />
+              className="image-loaded"
+              style={{
+                backgroundImage: `url("${inputValue}")`,
+              }}
+            />
             : <div className="photo-icon">
-                <MdOutlinePhotoCamera />
-              </div>
+              <MdOutlinePhotoCamera />
+            </div>
         }
       </div>
 

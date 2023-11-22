@@ -1,8 +1,3 @@
-.user-form-container {
-    width: 100%;
-    height: 100vh;
-}
-
 .form-container {
     display: grid;
     grid-gap: 10px;
@@ -18,6 +13,22 @@
 .image-input-container {
     width: 300px;
     height: 300px;
+    position: relative;
+}
+
+.image-info {
+    visibility: hidden;
+    color: black;
+    background: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    top: -10%;
+    z-index: 2;
+}
+
+.image-input-container:hover .image-info {
+    visibility: visible;
 }
 
 .user-form-button-save-section {

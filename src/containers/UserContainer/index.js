@@ -66,7 +66,7 @@ export const UserContainer = ({ userId = '' }) => {
   }, [user?.id])
 
   return (
-    <div className="user-form-container">
+    <div>
       <div className="header" >
         <div
           className="icon"
@@ -90,14 +90,18 @@ export const UserContainer = ({ userId = '' }) => {
       }
 
       <div className="form-container">
-        <div className="image-input-container">
-          <ImageInput
-            name="avatar"
-            value={formState?.avatar}
-            onChangeFunc={onChangeFunc}
-          />
-        </div>
+          <div className="image-input-container">
+            <ImageInput
+              name="avatar"
+              value={formState?.avatar}
+              onChangeFunc={onChangeFunc}
+            />
 
+            <div className="image-info">
+              <strong>Aviso:</strong> El cambio de imagen es solo de muestra, dado que no hay un servicio para subir las imagenes, la imagen asignada al guardar sera una predefinida en la app.
+            </div>
+          </div>
+        
         <div className="inputs-container">
           <Input
             name="name"
