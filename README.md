@@ -11,5 +11,5 @@
   - react-icons: to show various icons, you can find information about this in the following link (https://react-icons.github.io/react-icons).
 
 
-#Thank you very much and enjoy this trial app.
+#Thank you very much and enjoy this app.
 -Jose Molina
