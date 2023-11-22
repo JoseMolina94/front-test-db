@@ -3,6 +3,7 @@
     justify-content: flex-end;
     align-items: center;
     width: 1fr;
+    margin-top: 5px;
 }
 
 .home-header {
