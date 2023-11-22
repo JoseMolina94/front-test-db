@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGetUsers } from "../../hooks/useGetUsers";
 import { UsersGridList } from "../../components/UsersGridList";
 import { InfoAlert } from "../../components/Commons/InfoAlert";
 import {Link} from "react-router-dom";
+import { Input } from "../../components/Commons/Input";
 
 import './styles.css'
 
@@ -12,6 +13,25 @@ export const HomeContainer = () => {
     loadingUsersList,
     setUsersList
   } = useGetUsers()
+  const [userListToShow, setUserListToShow] = useState([])
+  const [filter, setFilter] = useState("")
+
+  const filterList = (search = '') => {
+    const list = usersList.filter(ele => ele.name.toLowerCase().includes(search.toLowerCase()))
+    setUserListToShow(list)
+  }
+
+  const onChangeFunc = ({ value }) => {
+    setFilter(value)
+  }
+
+  useEffect(() => {
+    setUserListToShow(usersList)
+  }, [loadingUsersList])
+
+  useEffect(() => {
+    filterList(filter)
+  }, [filter])
 
   return (
     <div>
@@ -19,6 +39,16 @@ export const HomeContainer = () => {
         <h1 className="title">
           Lista de Usuarios
         </h1>
+
+        <div className="filter-container">
+          <Input
+            name="search"
+            value={filter}
+            placeholder="Filtro de usuarios..."
+            onChangeFunc={onChangeFunc}
+          />
+        </div>
+
 
         <div className="create-button-section">
           <Link to="/user/create">
@@ -35,7 +65,7 @@ export const HomeContainer = () => {
       />
 
       <UsersGridList
-        usersList={usersList}
+        usersList={userListToShow}
         loading={loadingUsersList}
         setUsersList={setUsersList}
       />

@@ -9,7 +9,8 @@ export const Input = (props) => {
     type = "text",
     style = {},
     label = "",
-    required = false
+    required = false,
+    placeholder = ''
   } = props
   const [inputValue, setInputValue] = useState(value)
 
@@ -27,14 +28,18 @@ export const Input = (props) => {
 
   return (
     <div className="input-container">
-      <p
-        className="input-label"
-        style={{
-          fontSize: style?.fontSize && "calc(style?.fontSize - 6px)"
-        }}
-      >
-        {label}
-      </p>
+      {
+        label &&
+        <p
+          className="input-label"
+          style={{
+            fontSize: style?.fontSize && "calc(style?.fontSize - 6px)"
+          }}
+        >
+          {label}
+        </p>
+      }
+
 
       {
         type !== "textarea"
@@ -46,6 +51,7 @@ export const Input = (props) => {
           onChange={onChange}
           style={style}
           required={required}
+          placeholder={placeholder}
         />
         : <textarea
             className="textarea"
@@ -53,6 +59,7 @@ export const Input = (props) => {
             value={inputValue}
             onChange={onChange}
             required={required}
+            placeholder={placeholder}
           />
       }
     </div>
