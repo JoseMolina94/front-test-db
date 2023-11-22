@@ -1,6 +1,6 @@
 # front-test-db
 
-#start the project:
+#Start the project:
 1 - In your terminal, run the "npm install" command to install the dependencies.
 2 - After the installation has been completed, in the terminal run the command "npm start", this will start the project.
 
