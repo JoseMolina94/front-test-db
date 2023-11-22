@@ -40,7 +40,9 @@ export const UserContainer = ({ userId = '' }) => {
     setFormState({...currentValues})
   }
 
-  console.log('FORM STATE', formState)
+  const onSubmit = () => {
+    
+  }
 
   useEffect(() => {
     if (user?.id) {
@@ -120,9 +122,15 @@ export const UserContainer = ({ userId = '' }) => {
                   label="Rol"
                 />
               </div>
-
             </div>
+          </div>
 
+          <div className="user-form-button-save-section" >
+            <button
+              className="save-button"
+            >
+              Save
+            </button>
           </div>
         </div>
       </form>

@@ -19,3 +19,9 @@
     width: 300px;
     height: 300px;
 }
+
+.user-form-button-save-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

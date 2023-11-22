@@ -34,6 +34,21 @@ code {
   padding: 0 30px;
 }
 
+.title {
+  font-size: 48px;
+  line-height: 40px;
+}
+
+.save-button {
+  color: white;
+  background: green;
+  font-size: 24px;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border-color: darkgreen;
+  cursor: pointer;
+}
+
 @keyframes enter {
   from {
     opacity: 0;
